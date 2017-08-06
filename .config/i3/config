@@ -1,0 +1,128 @@
+#=======================#
+# Variable Declarations #
+#=======================#
+
+set $mod	Mod4
+
+set $workspace1	workspace ""
+set $workspace2	workspace ""
+set $workspace3	workspace ""
+set $workspace4	workspace 4
+set $workspace5	workspace 5
+set $workspace6	workspace 6
+set $workspace7	workspace 7
+set $workspace8	workspace ""
+set $workspace9 workspace ""
+set $workspace0	workspace ""
+
+
+#===================#
+# Keyboad Shortcuts #
+#===================#
+
+# Launch Terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Launch Web Browser
+bindsym $mod+w exec qutebrowser
+
+# Launch Rofi
+bindsym $mod+d exec rofi -show run
+
+# Reload i3 
+bindsym $mod+Shift+r restart
+
+# Toggle Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Kill Program
+bindsym $mod+Shift+q kill
+
+# Lock Computer
+bindsym $mod+x exec lock -pf Terminus -- scrot -z
+
+# Change Window Focus
+bindsym $mod+j focus left
+bindsym $mod+Left focus left
+bindsym $mod+k focus down
+bindsym $mod+Down focus down
+bindsym $mod+l focus up
+bindsym $mod+Up focus up
+bindsym $mod+semicolon focus right
+bindsym $mod+Right focus right
+
+# Move Window 
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Right move right
+
+# Change Horizontal/Vertical Tiling
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Switch Workspace
+bindsym $mod+0 $workspace0
+bindsym $mod+1 $workspace1
+bindsym $mod+2 $workspace2
+bindsym $mod+3 $workspace3
+bindsym $mod+4 $workspace4
+bindsym $mod+5 $workspace5
+bindsym $mod+6 $workspace6
+bindsym $mod+7 $workspace7
+bindsym $mod+8 $workspace8
+bindsym $mod+9 $workspace9
+
+# Move Tile to Workspace
+bindsym $mod+Shift+1 move container to $workspace1
+bindsym $mod+Shift+2 move container to $workspace2
+bindsym $mod+Shift+3 move container to $workspace3
+bindsym $mod+Shift+4 move container to $workspace4
+bindsym $mod+Shift+5 move container to $workspace5
+bindsym $mod+Shift+6 move container to $workspace6
+bindsym $mod+Shift+7 move container to $workspace7
+bindsym $mod+Shift+8 move container to $workspace8
+bindsym $mod+Shift+9 move container to $workspace9
+bindsym $mod+Shift+0 move container to $workspace0
+
+# Resize Mode
+bindsym $mod+r mode "resize"
+mode "Resize" {
+	
+	#Resize window          
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Exit Resize Mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#==========#
+# Settings #
+#==========#
+
+# Window Borders
+new_window 1pixel
+
+# Gap Spacing
+gaps inner 10
+gaps outer 12
+
+# Font
+font pango:Terminus 8
+
+# Status Bar
+bar {
+        status_command i3blocks
+}
